@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author  Zakaria J. <m.janah.zakaria@gmail.com>
+ * @package Dnd_Offers
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Dnd\Offers\Api\Data\OfferInterface" type="Dnd\Offers\Model\Offer" />
+    <preference for="Dnd\Offers\Api\OfferRepositoryInterface" type="Dnd\Offers\Model\Repository\OfferRepository" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dnd_offers_listing_data_source"
+                      xsi:type="string">Dnd\Offers\Model\ResourceModel\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Dnd\Offers\Controller\Adminhtml\Uploader\UploadImage">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Dnd\Offers\VirtualType\Model\ImageUpload</argument>
+        </arguments>
+    </type>
+    <type name="Dnd\Offers\Model\ImageProcessor">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Dnd\Offers\VirtualType\Model\ImageUpload</argument>
+        </arguments>
+    </type>
+    <virtualType name="Dnd\Offers\VirtualType\Model\ImageUpload" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="const">Dnd\Offers\Model\ImageProcessor::MEDIA_TMP_PATH</argument>
+            <argument name="basePath" xsi:type="const">Dnd\Offers\Model\ImageProcessor::MEDIA_PATH</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

@@ -1,0 +1,18 @@
+{
+    "dnd_offers": {
+        "column": {
+            "id": true,
+            "status": true,
+            "store_ids": true,
+            "name": true,
+            "category_ids": true,
+            "image": true,
+            "target_url": true,
+            "start_date": true,
+            "end_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

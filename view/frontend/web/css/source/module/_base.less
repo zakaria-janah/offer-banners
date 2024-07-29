@@ -1,0 +1,46 @@
+/**
+ * @author  Zakaria J. <m.janah.zakaria@gmail.com>
+ * @package Dnd_Offers
+ */
+
+ //
+//  Common
+//  --------------------------------------------
+
+& when (@media-common = true) {
+    .offers-wrap {
+        .offer-item {
+            >div {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                gap: 10px;
+                padding: 5px 0;
+                margin-bottom: 20px;
+
+                .offer-img {
+                    max-width: 100px;
+                }
+
+                .offer-link {
+                    padding: 10px 20px;
+                    border: 1px solid #006BB4;
+                    border-radius: 3px;
+                    color: #333;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    white-space: nowrap;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+                    &:visited {
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
+}

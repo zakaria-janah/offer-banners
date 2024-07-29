@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author  Zakaria J. <m.janah.zakaria@gmail.com>
+ * @package Dnd_Offers
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="dnd" translate="label" sortOrder="999">
+            <label>Dnd Extensions</label>
+        </tab>
+        <section id="dndoffers" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Offers</label>
+            <tab>dnd</tab>
+            <resource>Dnd_Offers::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

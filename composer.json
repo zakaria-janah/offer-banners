@@ -1,0 +1,28 @@
+{
+    "name": "dnd/module-offers",
+    "description": "DND Offers for Magento 2",
+    "authors": [
+        {
+            "email": "ext.jzakaria@1001pneus.fr",
+            "name": "Zakaria J.",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~8.1.0||~8.2.0",
+        "magento/framework": ">=103.0.6"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Dnd\\Offers\\": ""
+        }
+    }
+}

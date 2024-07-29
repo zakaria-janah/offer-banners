@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author  Zakaria J. <m.janah.zakaria@gmail.com>
+ * @package Dnd_Offers
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="top.container">
+            <block name="dnd.top.container.offers"
+                   template="Dnd_Offers::top/offers.phtml"
+                   ifconfig="dndoffers/general/enabled">
+                <arguments>
+                    <argument name="view_model"
+                              xsi:type="object">Dnd\Offers\ViewModel\OffersProviderViewModel</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

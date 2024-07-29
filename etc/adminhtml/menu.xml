@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author  Zakaria J. <m.janah.zakaria@gmail.com>
+ * @package Dnd_Offers
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dnd_Offers::offers" title="Dnd Offers" module="Dnd_Offers" resource="Dnd_Offers::offers" action="dndoffers/index" sortOrder="160"/>
+    </menu>
+</config>

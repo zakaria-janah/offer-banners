@@ -1,0 +1,44 @@
+<?php
+/**
+ * @author  Zakaria J. <m.janah.zakaria@gmail.com>
+ * @package Dnd_Offers
+ */
+
+use Magento\Framework\View\Element\Template;
+use Dnd\Offers\ViewModel\OffersProviderViewModel;
+use Magento\Framework\Escaper;
+
+/**
+ * @var Escaper $escaper
+ * @var Template $block
+ * @var OffersProviderViewModel $viewModel
+ */
+$viewModel = $block->getData('view_model');
+$offers = $viewModel->getOffers();
+?>
+<?php if (count($offers) > 0): ?>
+    <div class="offers-wrap">
+        <?php foreach ($viewModel->getOffers() as $offer): ?>
+            <div class="offer-item">
+                <div>
+                    <img class="offer-img" src="<?= $escaper->escapeUrl($viewModel->getImageUrl($offer->getImage())); ?>" />
+                    <span class="offer-name"><?= $escaper->escapeHtml($offer->getName()); ?></span>
+                    <a class="offer-link"
+                       target="_blank"
+                       href="<?= $escaper->escapeUrl(($offer->getTargetUrl()) ?: '#'); ?>">
+                        <?= $escaper->escapeHtml(__('Learn More')); ?>
+                    </a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <script>
+        require([
+            'jquery',
+            'slick',
+            'domReady!'
+        ], function ($) {
+            $('.offers-wrap').slick();
+        });
+    </script>
+<?php endif; ?>
