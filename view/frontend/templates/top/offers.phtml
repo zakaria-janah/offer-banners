@@ -4,21 +4,20 @@
  * @package Dnd_Offers
  */
 
-use Magento\Framework\View\Element\Template;
-use Dnd\Offers\ViewModel\OffersProviderViewModel;
-use Magento\Framework\Escaper;
+ use Dnd\Offers\ViewModel\OffersProviderViewModel;
+ use Magento\Framework\Escaper;
+ use Magento\Framework\View\Element\Template;
 
 /**
+ * @var OffersProviderViewModel $viewModel
  * @var Escaper $escaper
  * @var Template $block
- * @var OffersProviderViewModel $viewModel
  */
 $viewModel = $block->getData('view_model');
-$offers = $viewModel->getOffers();
 ?>
-<?php if (count($offers) > 0): ?>
+<?php if ($offers = $viewModel->getOffers()): ?>
     <div class="offers-wrap">
-        <?php foreach ($viewModel->getOffers() as $offer): ?>
+        <?php foreach ($offers as $offer): ?>
             <div class="offer-item">
                 <div>
                     <img class="offer-img" src="<?= $escaper->escapeUrl($viewModel->getImageUrl($offer->getImage())); ?>" />

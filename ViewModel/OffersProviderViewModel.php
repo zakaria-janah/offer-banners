@@ -8,31 +8,45 @@ declare(strict_types=1);
 
 namespace Dnd\Offers\ViewModel;
 
-use Magento\Framework\View\Element\Block\ArgumentInterface;
-use Dnd\Offers\Api\OfferRepositoryInterface;
-use Magento\Framework\Api\SearchCriteriaBuilderFactory;
 use Dnd\Offers\Api\Data\OfferInterface;
-use Magento\Framework\Api\SearchCriteriaBuilder;
-use Magento\Catalog\Model\Layer\Resolver;
-use Magento\Catalog\Api\Data\CategoryInterface;
-use Magento\Store\Model\StoreManagerInterface;
+use Dnd\Offers\Api\OfferRepositoryInterface;
 use Dnd\Offers\Model\ImageProcessor;
+use Magento\Catalog\Api\Data\CategoryInterface;
+use Magento\Catalog\Model\Layer\Resolver;
+use Magento\Framework\Api\SearchCriteriaBuilder;
+use Magento\Framework\Api\SearchCriteriaBuilderFactory;
+use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Class OffersProviderViewModel
  */
 class OffersProviderViewModel implements ArgumentInterface
 {
+    /** @var SearchCriteriaBuilderFactory */
     protected SearchCriteriaBuilderFactory $searchCriteriaBuilderFactory;
 
+    /** @var OfferRepositoryInterface */
     protected OfferRepositoryInterface $offerRepository;
 
+    /** @var Resolver */
     protected Resolver $layerResolver;
 
+    /** @var StoreManagerInterface */
     protected StoreManagerInterface $storeManager;
 
+    /** @var ImageProcessor */
     protected ImageProcessor $imageProcessor;
     
+    /**
+     * OffersProviderViewModel constructor.
+     *
+     * @param SearchCriteriaBuilderFactory $searchCriteriaBuilderFactory
+     * @param OfferRepositoryInterface $offerRepository
+     * @param Resolver $layerResolver
+     * @param StoreManagerInterface $storeManager
+     * @param ImageProcessor $imageProcessor
+     */
     public function __construct(
         SearchCriteriaBuilderFactory $searchCriteriaBuilderFactory,
         OfferRepositoryInterface $offerRepository,
